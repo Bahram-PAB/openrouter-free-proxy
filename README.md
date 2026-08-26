@@ -1,12 +1,3 @@
-```markdown
-# OpenRouter Free Proxy
-
-[English](#-english) | [فارسی](#-فارسی)
-
-A simple and reliable **Cloudflare Worker** that acts as a proxy for OpenRouter free models with automatic fallback between multiple API keys.
-
----
-
 ## 🇬🇧 English
 
 ### ✨ Features
