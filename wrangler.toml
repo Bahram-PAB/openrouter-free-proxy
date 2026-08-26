@@ -1,0 +1,6 @@
+name = "openrouter-free-proxy"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+# Environment variables (Secrets) should be set in Cloudflare Dashboard
+# OPENROUTER_KEY_1 to OPENROUTER_KEY_12
