@@ -67,3 +67,73 @@ If all keys are rate-limited, you will receive a 429 error. Just wait a few minu
 
 License
 MIT License
+
+فارسی
+ویژگی‌ها
+
+پشتیبانی از چندین API Key (تا ۱۲ عدد)
+جابه‌جایی خودکار (Round-robin + Fallback) هنگام رسیدن به محدودیت نرخ
+فقط مدل‌های رایگان (:free) مجاز هستند
+کاملاً سازگار با فرمت OpenAI
+پشتیبانی از Streaming و Non-Streaming
+آماده استفاده در اپلیکیشن‌هایی مثل Open WebUI، SillyTavern، LobeChat، Continue و ...
+
+دمو
+textBase URL: https://your-worker.workers.dev/v1
+نحوه استقرار (Deploy)
+
+یک Worker جدید در داشبورد کلادفلر بسازید
+محتوای فایل src/index.js را داخل Worker کپی کنید
+به بخش Settings → Variables and Secrets بروید و کلیدهای خود را اضافه کنید:
+OPENROUTER_KEY_1
+OPENROUTER_KEY_2
+...
+OPENROUTER_KEY_12
+
+Worker را Deploy کنید
+
+نحوه استفاده
+در هر برنامه‌ای که از API سازگار با OpenAI پشتیبانی می‌کند:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+فیلدمقدارBase URLhttps://your-worker.workers.dev/v1API Keysk-123 (یا هر مقدار ساختگی)
+مثال (پایتون)
+Pythonfrom openai import OpenAI
+
+client = OpenAI(
+    base_url="https://your-worker.workers.dev/v1",
+    api_key="dummy"
+)
+
+response = client.chat.completions.create(
+    model="google/gemma-4-31b-it:free",
+    messages=[{"role": "user", "content": "سلام!"}]
+)
+
+print(response.choices[0].message.content)
+نکات
+
+مدل‌های رایگان OpenRouter گاهی شلوغ می‌شوند. این پروکسی به صورت خودکار کلید بعدی را امتحان می‌کند.
+اگر همه کلیدها محدود شده باشند، خطای 429 دریافت می‌کنید. چند دقیقه صبر کنید و دوباره تلاش کنید.
+
+لایسنس
+MIT License
+
+Author: Bahram-PAB
+
+Repository: https://github.com/Bahram-PAB/openrouter-free-proxy
